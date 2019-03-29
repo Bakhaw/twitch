@@ -1,24 +1,24 @@
-import React, { useEffect } from 'react';
-import API from './api';
+import React from 'react';
+import { createGlobalStyle } from 'styled-components';
+
+import Router from './Router';
 import UpdateApp from './components/UpdateApp';
 
-export default function App() {
-  const fetch = async () => {
-    console.log('fired');
-    const req = await API.getUserById('59584981');
-    console.log('done', req);
-  };
+const GlobalStyle = createGlobalStyle`
+ body {
+    padding: 0;
+    margin: 0;
+  }
+`;
 
-  useEffect(() => {
-    fetch();
-  }, []);
-
+function App() {
   return (
-    <header>
-      <p>
-        Edit <code>src/App.js</code> and save to reload.
-      </p>
+    <>
+      <Router />
+      <GlobalStyle />
       <UpdateApp />
-    </header>
+    </>
   );
 }
+
+export default App;
