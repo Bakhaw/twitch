@@ -1,30 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
-import LoaderGIF from '../../assets/loader.gif';
-import { usePalette } from '../../stylesheets';
+import { layout, usePalette } from '../../stylesheets';
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 100%;
-`;
-
-const Image = styled.img`
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-  padding: 3px;
-  border: ${props => `5px solid ${props.colors.purple.light}`};
+  height: calc(
+    100vh - (50px + ${layout.NavBar.height})
+  ); /* 50px is <PageWrapper /> padding */
+  div  {
+    color: ${props => props.colors.Loader.icon};
+  }
 `;
 
 function Loader() {
   const colors = usePalette();
   return (
-    <Wrapper>
-      <Image alt='Loader GIF' colors={colors} src={LoaderGIF} />
+    <Wrapper colors={colors}>
+      <CircularProgress size={30} />
     </Wrapper>
   );
 }
