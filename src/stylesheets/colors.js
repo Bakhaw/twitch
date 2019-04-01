@@ -15,6 +15,10 @@ export default {
     },
     PageWrapper: {
       background: '#fff'
+    },
+    StreamCard: {
+      subtitle: '#322f37',
+      title: '#19171c'
     }
   },
   Dark: {
@@ -33,6 +37,10 @@ export default {
     },
     PageWrapper: {
       background: '#25222d'
+    },
+    StreamCard: {
+      subtitle: '#bca3ec',
+      title: '#f3f3f3'
     }
   }
 };

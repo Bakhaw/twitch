@@ -5,5 +5,9 @@ export default {
   },
   NavBar: {
     height: '50px'
+  },
+  StreamCard: {
+    height: 180,
+    width: 300
   }
 };
