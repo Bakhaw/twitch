@@ -1,29 +1,37 @@
 export default {
-  light: {
-    purple: {
-      light: '#7344d8',
-      default: '#6441a4',
-      dark: '#19171c'
+  Light: {
+    GameCard: {
+      title: '#6441a4'
     },
-    white: {
-      light: 'hsla(0, 0%, 100%, 0.7)',
-      default: '#fff'
+    Loader: {
+      icon: '#19171c'
     },
-    wrapper: {
+    NavBar: {
+      background: '#6441a4',
+      NavLink: {
+        active: '#fff',
+        default: 'hsla(0, 0%, 100%, 0.7)'
+      }
+    },
+    PageWrapper: {
       background: '#fff'
     }
   },
-  dark: {
-    purple: {
-      light: '#7344d8',
-      default: '#6441a4',
-      dark: '#19171c'
+  Dark: {
+    GameCard: {
+      title: '#f3f3f3'
     },
-    white: {
-      light: 'hsla(0, 0%, 100%, 0.7)',
-      default: '#fff'
+    Loader: {
+      icon: '#f3f3f3'
     },
-    wrapper: {
+    NavBar: {
+      background: '#3b1f64',
+      NavLink: {
+        active: '#fff',
+        default: 'hsla(0, 0%, 100%, 0.7)'
+      }
+    },
+    PageWrapper: {
       background: '#25222d'
     }
   }
