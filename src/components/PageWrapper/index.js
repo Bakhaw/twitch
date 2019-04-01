@@ -9,12 +9,13 @@ const Wrapper = styled.main`
   bottom: 0;
   right: 0;
   height: ${`calc(100vh - ${layout.NavBar.height})`};
-  width: ${`calc(100vw - ${layout.LeftMenu.width})`};
-  background: ${props => props.colors.wrapper.background};
+  width: 100vw;
+  background: ${props => props.colors.PageWrapper.background};
 `;
 
 const ChildrenWrapper = styled.div`
   padding: 50px 20px;
+  min-height: calc(100% - 100px); /* 100px === padding just before: 50px */
 `;
 
 function PageWrapper({ children }) {
