@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import API from '../../api';
 import GameCard from '../../components/GameCard';
-import Loader from '../../components/Loader';
 import PageWrapper from '../../components/PageWrapper';
 
 import { layout } from '../../stylesheets';
@@ -27,19 +27,14 @@ function TopGames() {
     getData();
   }, []);
 
-  if (games.length === 0)
-    return (
-      <PageWrapper>
-        <Loader />
-      </PageWrapper>
-    );
-
   return (
-    <PageWrapper>
+    <PageWrapper isLoading={games.length === 0}>
       <GamesList>
         {games.map(game => (
           <li key={game.id}>
-            <GameCard game={game} />
+            <Link to={`/directory/game/${game.id}`}>
+              <GameCard game={game} />
+            </Link>
           </li>
         ))}
       </GamesList>

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Loader from '../Loader';
 import { layout, usePalette } from '../../stylesheets';
 
 const Wrapper = styled.main`
@@ -18,11 +19,11 @@ const ChildrenWrapper = styled.div`
   min-height: calc(100% - 100px); /* 100px === padding just before: 50px */
 `;
 
-function PageWrapper({ children }) {
+function PageWrapper({ children, isLoading }) {
   const colors = usePalette();
   return (
     <Wrapper colors={colors}>
-      <ChildrenWrapper>{children}</ChildrenWrapper>
+      {isLoading ? <Loader /> : <ChildrenWrapper>{children}</ChildrenWrapper>}
     </Wrapper>
   );
 }
