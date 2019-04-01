@@ -35,6 +35,15 @@ const API = {
       return console.log(err);
     }
   },
+  getMultipleUsersById: async function(usersIds) {
+    try {
+      const url = `${this.baseUrl}/users/?id=${usersIds}`;
+      const { data } = await axios.get(url, config);
+      return data;
+    } catch (err) {
+      return console.log(err);
+    }
+  },
   getUserById: async function(userId) {
     try {
       const url = `${this.baseUrl}/users/?id=${userId}`;
