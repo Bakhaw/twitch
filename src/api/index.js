@@ -4,13 +4,22 @@ import config from './config';
 const API = {
   baseUrl: 'https://api.twitch.tv/helix',
   getTopGames: async function() {
-    const url = `${this.baseUrl}/games/top`;
+    const url = `${this.baseUrl}/games/top/?first=100`;
     const { data } = await axios.get(url, config);
     return data;
   },
   getGameById: async function(gameId) {
     try {
       const url = `${this.baseUrl}/games/?id=${gameId}`;
+      const { data } = await axios.get(url, config);
+      return data;
+    } catch (err) {
+      return console.log(err);
+    }
+  },
+  getStreams: async function() {
+    try {
+      const url = `${this.baseUrl}/streams`;
       const { data } = await axios.get(url, config);
       return data;
     } catch (err) {
