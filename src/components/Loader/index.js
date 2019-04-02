@@ -8,18 +8,21 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(
-    100vh - (50px + ${layout.NavBar.height})
-  ); /* 50px is <PageWrapper /> padding */
+  height: ${props => props.height};
   div  {
     color: ${props => props.colors.Loader.icon};
   }
 `;
 
-function Loader() {
+function Loader({ fullscreen }) {
   const colors = usePalette();
+  const height = fullscreen
+    ? `calc(
+    100vh - (50px + ${layout.NavBar.height})
+  )`
+    : '150px'; /* 50px is <PageWrapper /> padding */
   return (
-    <Wrapper colors={colors}>
+    <Wrapper colors={colors} height={height}>
       <CircularProgress size={30} />
     </Wrapper>
   );
