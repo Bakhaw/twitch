@@ -1,30 +1,26 @@
 import React, { useContext } from 'react';
+import Switch from '@material-ui/core/Switch';
 import styled from 'styled-components';
 
-import { StateContext } from '../../Context';
 import MoonIcon from '../../assets/moon.svg';
-
-const ChangeThemeButton = styled.button`
-  cursor: pointer;
-  height: 30px;
-  border: none;
-  background: none;
-  &:hover {
-    opacity: 0.6;
-  }
-`;
+import SunIcon from '../../assets/sun.svg';
+import { StateContext } from '../../Context';
 
 const Icon = styled.img`
-  width: 22px;
+  width: 18px;
 `;
 
 function ToggleThemeButton() {
-  const { toggleTheme } = useContext(StateContext);
-
+  const { theme, toggleTheme } = useContext(StateContext);
   return (
-    <ChangeThemeButton onClick={toggleTheme}>
-      <Icon src={MoonIcon} />
-    </ChangeThemeButton>
+    <>
+      <Icon src={theme === 'Dark' ? MoonIcon : SunIcon} />
+      <Switch
+        checked={theme === 'Dark'}
+        color='default'
+        onChange={toggleTheme}
+      />
+    </>
   );
 }
 
