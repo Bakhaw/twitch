@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { layout, usePalette } from '../../stylesheets';
 
 const Image = styled.img`
-  background: ${props => props.colors.StreamCard.subtitle};
+  background: ${props => props.colors.StreamCard.background};
   height: ${layout.StreamCard.height}px;
   width: 100%;
   border-radius: 6px;

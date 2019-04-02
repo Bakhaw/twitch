@@ -7,6 +7,7 @@ import { useFetch } from '../../api/hooks';
 import { usePalette } from '../../stylesheets';
 
 const Wrapper = styled.div`
+  background-color: ${props => props.colors.PageWrapper.background};
   background-image: ${props => props.colors.StreamsBanner.background},
     url(${props => props.backgroundImage});
   background-position: center;
@@ -31,11 +32,11 @@ const Wrapper = styled.div`
 `;
 
 function Banner({ gameId }) {
+  const colors = usePalette();
   const { data: game } = useFetch('getGameById', [gameId]);
 
   if (game.length === 0) return <Loader />;
 
-  const colors = usePalette();
   const backgroundImage = `${game[0].box_art_url.slice(0, -21)}-1920x1080.jpg`;
   return (
     <Wrapper backgroundImage={backgroundImage} colors={colors}>

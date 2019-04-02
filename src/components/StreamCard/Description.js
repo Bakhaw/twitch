@@ -4,17 +4,16 @@ import styled from 'styled-components';
 import { layout, usePalette } from '../../stylesheets';
 
 const Avatar = styled.img`
-  height: 38px;
-  width: 38px;
+  height: 40px;
+  width: 40px;
   margin: 10px 10px 0 0;
   border-radius: 50%;
-  border: 4px solid transparent;
 `;
 
 const Title = styled.h3`
   width: calc(
     ${layout.StreamCard.width}px - 50px
-  ); /* 53px is Avatar almost total width */
+  ); /* 50px is Avatar total width */
   color: ${props => props.colors.StreamCard.title};
   font-size: 14px;
   font-weight: 500;
@@ -36,9 +35,6 @@ const Wrapper = styled.div`
   &:hover {
     ${Title} {
       text-decoration: underline;
-    }
-    ${Avatar} {
-      border: 4px solid ${props => props.colors.StreamCard.subtitle};
     }
   }
 `;

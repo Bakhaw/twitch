@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { layout, usePalette } from '../../stylesheets';
+import { layout, palette } from '../../stylesheets';
 
 const NavLinks = styled.ul`
   display: flex;
@@ -15,10 +15,9 @@ const NavLink = styled.li`
   margin: 0 10px;
   position: relative;
   a {
-    color: ${({ colors, isActive }) =>
-      isActive ? colors.NavBar.NavLink.active : colors.NavBar.NavLink.default};
+    color: ${props => props.color};
     :hover {
-      color: ${props => props.colors.NavBar.NavLink.active};
+      color: ${palette.white.default};
     }
   }
   ${({ isActive }) =>
@@ -38,7 +37,6 @@ const NavLink = styled.li`
 `;
 
 function Links({ location }) {
-  const colors = usePalette();
   const items = [
     {
       id: 0,
@@ -51,14 +49,20 @@ function Links({ location }) {
       to: '/directory'
     }
   ];
-
   return (
     <NavLinks>
-      {items.map(({ id, label, to }) => (
-        <NavLink key={id} colors={colors} isActive={location.pathname === to}>
-          <Link to={to}>{label}</Link>
-        </NavLink>
-      ))}
+      {items.map(({ id, label, to }) => {
+        const isActive = location.pathname === to;
+        return (
+          <NavLink
+            key={id}
+            color={isActive ? palette.white.default : palette.grey.default}
+            isActive={isActive}
+          >
+            <Link to={to}>{label}</Link>
+          </NavLink>
+        );
+      })}
     </NavLinks>
   );
 }

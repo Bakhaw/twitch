@@ -9,8 +9,9 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: ${props => props.height};
+  background-color: ${props => props.colors.Loader.background};
   div  {
-    color: ${props => props.colors.Loader.icon};
+    color: ${props => props.colors.Loader.color};
   }
 `;
 
