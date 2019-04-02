@@ -5,11 +5,7 @@ import Loader from '../Loader';
 import { layout, usePalette } from '../../stylesheets';
 
 const Wrapper = styled.main`
-  overflow-y: scroll;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  height: ${`calc(100vh - ${layout.NavBar.height})`};
+  min-height: ${`calc(100vh - ${layout.NavBar.height})`};
   width: 100vw;
   background: ${props => props.colors.PageWrapper.background};
 `;
@@ -23,7 +19,11 @@ function PageWrapper({ children, isLoading }) {
   const colors = usePalette();
   return (
     <Wrapper colors={colors}>
-      {isLoading ? <Loader /> : <ChildrenWrapper>{children}</ChildrenWrapper>}
+      {isLoading ? (
+        <Loader fullscreen />
+      ) : (
+        <ChildrenWrapper>{children}</ChildrenWrapper>
+      )}
     </Wrapper>
   );
 }
