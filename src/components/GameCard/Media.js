@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
 import { layout, usePalette } from '../../stylesheets';
 
 const Image = styled.img`
@@ -23,5 +25,9 @@ function Media({ game: { box_art_url, name } }) {
     />
   );
 }
+
+Media.propTypes = {
+  game: PropTypes.object
+};
 
 export default Media;

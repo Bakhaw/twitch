@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import GameCard from '../../components/GameCard';
@@ -18,5 +19,9 @@ function Content({ games }) {
     </List>
   );
 }
+
+Content.propTypes = {
+  games: PropTypes.array
+};
 
 export default Content;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Loader from '../Loader';
@@ -27,5 +28,9 @@ function PageWrapper({ children, isLoading }) {
     </Wrapper>
   );
 }
+
+PageWrapper.propTypes = {
+  isLoading: PropTypes.bool
+};
 
 export default PageWrapper;

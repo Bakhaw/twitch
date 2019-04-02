@@ -1,6 +1,6 @@
 import palette from './palette';
 
-const { black, grey, purple, white } = palette;
+const { black, purple, white } = palette;
 
 export default {
   Light: {

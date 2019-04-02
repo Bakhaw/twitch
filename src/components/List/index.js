@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Wrapper = styled.ul`
@@ -27,5 +28,14 @@ function List({ children, columnWidth, onBottomReached }) {
 
   return <Wrapper columnWidth={columnWidth}>{children}</Wrapper>;
 }
+
+List.defaultProps = {
+  onBottomReached: null
+};
+
+List.propTypes = {
+  columnWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  onBottomReached: PropTypes.func
+};
 
 export default List;

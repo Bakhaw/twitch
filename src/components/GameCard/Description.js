@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { layout, usePalette } from '../../stylesheets';
@@ -22,5 +23,9 @@ function Description({ game: { name } }) {
     </Title>
   );
 }
+
+Description.propTypes = {
+  game: PropTypes.object
+};
 
 export default Description;

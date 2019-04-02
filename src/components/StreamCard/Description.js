@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { layout, usePalette } from '../../stylesheets';
@@ -51,5 +52,9 @@ function Description({ stream: { img, user_name, title } }) {
     </Wrapper>
   );
 }
+
+Description.propTypes = {
+  stream: PropTypes.object
+};
 
 export default Description;

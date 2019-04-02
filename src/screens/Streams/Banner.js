@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import GameCard from '../../components/GameCard';
@@ -44,5 +45,9 @@ function Banner({ gameId }) {
     </Wrapper>
   );
 }
+
+Banner.propTypes = {
+  gameId: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+};
 
 export default Banner;

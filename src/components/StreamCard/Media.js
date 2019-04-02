@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { layout, usePalette } from '../../stylesheets';
@@ -61,5 +62,9 @@ function Media({ stream: { thumbnail_url, user_name, viewer_count } }) {
     </Wrapper>
   );
 }
+
+Media.propTypes = {
+  stream: PropTypes.object
+};
 
 export default Media;
