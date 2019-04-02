@@ -1,12 +1,13 @@
 import { useContext } from 'react';
 import { StateContext } from '../Context';
 
-import colors from './colors';
 import layout from './layout';
+import palette from './palette';
+import theme from './theme';
 
 export function usePalette() {
-  const context = useContext(StateContext);
-  return colors[context.theme];
+  const { currentTheme } = useContext(StateContext);
+  return theme[currentTheme];
 }
 
-export { colors, layout };
+export { palette, layout };
