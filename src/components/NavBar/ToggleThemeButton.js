@@ -18,7 +18,7 @@ const Icon = styled.img`
   width: 22px;
 `;
 
-export default function ToggleThemeButton() {
+function ToggleThemeButton() {
   const { toggleTheme } = useContext(StateContext);
 
   return (
@@ -27,3 +27,5 @@ export default function ToggleThemeButton() {
     </ChangeThemeButton>
   );
 }
+
+export default ToggleThemeButton;
