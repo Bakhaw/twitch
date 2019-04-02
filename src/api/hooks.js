@@ -13,9 +13,7 @@ export function useFetch(method, methodParams = [], initialState = []) {
   };
 
   useEffect(() => {
-    if (!isLoading) {
-      fetchData();
-    }
+    fetchData();
   }, [...methodParams]);
 
   return { data, isLoading };
