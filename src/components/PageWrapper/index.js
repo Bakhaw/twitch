@@ -7,7 +7,7 @@ import { layout, usePalette } from '../../stylesheets';
 
 const Wrapper = styled.main`
   min-height: ${`calc(100vh - ${layout.NavBar.height})`};
-  width: 100vw;
+  max-width: 100vw;
   background: ${props => props.colors.PageWrapper.background};
 `;
 
