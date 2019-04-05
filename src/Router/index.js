@@ -2,7 +2,8 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Home from '../screens/Home';
-import Streams from '../screens/Streams';
+import LiveStream from '../screens/LiveStream';
+import LiveStreams from '../screens/LiveStreams';
 import TopGames from '../screens/TopGames';
 import NavBar from '../components/NavBar';
 
@@ -12,7 +13,8 @@ function Router() {
       <>
         <NavBar />
         <Switch>
-          <Route path='/directory/game/:gameId' component={Streams} />
+          <Route path='/channel/:userId' component={LiveStream} />
+          <Route path='/directory/game/:gameId' component={LiveStreams} />
           <Route path='/directory' component={TopGames} />
           <Route path='/' component={Home} />
         </Switch>
