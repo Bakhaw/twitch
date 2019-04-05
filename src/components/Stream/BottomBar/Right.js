@@ -8,26 +8,29 @@ import { palette } from '../../../stylesheets';
 
 const ViewsWrapper = styled.div`
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   span {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin: 0 10px;
+    margin: 10px 0;
+  }
+  p {
+    margin: 0;
+    font-size: 16px;
   }
 `;
 
 const LiveViewers = styled.span`
   color: ${palette.red.default};
-  font-size: 16px;
 `;
 
 const ChannelViews = styled.span`
   color: ${palette.grey.dark};
-  font-size: 16px;
 `;
 
 const Icon = styled.img`
-  margin-right: 5px;
+  margin-right: 10px;
   width: 18px;
 `;
 

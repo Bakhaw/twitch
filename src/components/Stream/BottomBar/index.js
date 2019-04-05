@@ -5,18 +5,20 @@ import styled from 'styled-components';
 
 import Left from './Left';
 import Right from './Right';
+import { usePalette } from '../../../stylesheets';
 import { useFetch } from '../../../api/hooks';
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
   padding: 10px 20px;
-  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.26), 0 5px 5px rgba(0, 0, 0, 0.26);
+  background: ${props => props.colors.LiveStream.background};
+  box-shadow: ${props => props.colors.LiveStream.boxShadow};
   border-radius: 6px;
 `;
 
 function BottomBar({ channel, match }) {
+  const colors = usePalette();
   const { data: streamDetail } = useFetch('getStreamsByParam', [
     'user_id',
     channel.id,
@@ -27,7 +29,7 @@ function BottomBar({ channel, match }) {
   if (streamDetail.length === 0 || gameDetail.length === 0) return null;
 
   return (
-    <Wrapper>
+    <Wrapper colors={colors}>
       <Left gameDetail={gameDetail} streamDetail={streamDetail} />
       <Right channel={channel} streamDetail={streamDetail} />
     </Wrapper>

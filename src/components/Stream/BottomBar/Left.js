@@ -18,8 +18,8 @@ const Wrapper = styled.div`
 `;
 
 const Image = styled.img`
-  height: 85px;
-  width: 70px;
+  height: 80px;
+  width: 60px;
   border-radius: 6px;
   margin-right: 10px;
 `;
@@ -33,7 +33,9 @@ const Title = styled.h2`
 const Subtitle = styled.h3`
   color: ${props => props.colors.StreamCard.subtitle};
   font-size: 16px;
-  text-decoration: underline;
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 function Left({ gameDetail, streamDetail }) {
