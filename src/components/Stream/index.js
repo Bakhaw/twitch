@@ -20,13 +20,13 @@ const Wrapper = styled.div`
 const VideoWrapper = styled.div`
   padding: 40px 30px;
   width: calc(100vw - ${layout.Chat.width}px);
-  overflow: scroll;
+  overflow-y: scroll;
 `;
 
 const Stream = ({ channel }) => (
   <Wrapper>
-    <TopBar channel={channel} />
     <VideoWrapper>
+      <TopBar channel={channel} />
       <Video channel={channel} />
       <BottomBar channel={channel} />
     </VideoWrapper>
