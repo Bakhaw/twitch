@@ -6,8 +6,8 @@ import { layout } from '../../stylesheets';
 import { StateContext } from '../../Context';
 
 const Wrapper = styled.div`
-  width: ${layout.Chat.width}px;
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.26), 0 5px 5px rgba(0, 0, 0, 0.26);
+  width: ${layout.Chat.width}px;
 `;
 
 const Chat = ({ channel }) => {
