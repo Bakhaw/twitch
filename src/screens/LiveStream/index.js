@@ -7,7 +7,6 @@ import { useFetch } from '../../api/hooks';
 function LiveStream({ match }) {
   const { userId } = match.params;
   const { data: channel } = useFetch('getUserById', [userId]);
-
   return (
     <PageWrapper isLoading={channel.length === 0}>
       <Stream channel={channel[0]} />

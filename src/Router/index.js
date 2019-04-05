@@ -13,7 +13,10 @@ function Router() {
       <>
         <NavBar />
         <Switch>
-          <Route path='/channel/:userId' component={LiveStream} />
+          <Route
+            path='/directory/game/:gameId/channel/:userId'
+            component={LiveStream}
+          />
           <Route path='/directory/game/:gameId' component={LiveStreams} />
           <Route path='/directory' component={TopGames} />
           <Route path='/' component={Home} />

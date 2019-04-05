@@ -64,7 +64,11 @@ function LiveStreams({ match }) {
         >
           {streams.map(stream => (
             <li key={stream.id}>
-              <Link to={`/channel/${stream.user_id}`}>
+              <Link
+                to={`/directory/game/${stream.game_id}/channel/${
+                  stream.user_id
+                }`}
+              >
                 <StreamCard stream={stream} />
               </Link>
             </li>
