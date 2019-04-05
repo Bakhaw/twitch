@@ -26,11 +26,11 @@ const API = {
       return console.log(err);
     }
   },
-  getStreamsByGameId: async function(gameId, maxObjects) {
+  getStreamsByParam: async function(paramName, paramValue, maxObjects) {
     try {
       const url = `${
         this.baseUrl
-      }/streams/?game_id=${gameId}&first=${maxObjects}`;
+      }/streams/?${paramName}=${paramValue}&first=${maxObjects}`;
       const { data } = await axios.get(url, config);
       return data;
     } catch (err) {
