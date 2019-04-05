@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import GameCard from '../../components/GameCard';
-import Loader from '../../components/Loader';
 import { useFetch } from '../../api/hooks';
 import { usePalette } from '../../stylesheets';
 
@@ -36,14 +35,17 @@ function Banner({ gameId }) {
   const colors = usePalette();
   const { data: game } = useFetch('getGameById', [gameId]);
 
-  if (game.length === 0) return <Loader />;
-
-  const backgroundImage = `${game[0].box_art_url.slice(0, -21)}-1920x1080.jpg`;
-  return (
-    <Wrapper backgroundImage={backgroundImage} colors={colors}>
-      <GameCard game={game[0]} />
-    </Wrapper>
-  );
+  if (game.length > 0) {
+    const backgroundImage = `${game[0].box_art_url.slice(
+      0,
+      -21
+    )}-1920x1080.jpg`;
+    return (
+      <Wrapper backgroundImage={backgroundImage} colors={colors}>
+        <GameCard game={game[0]} />
+      </Wrapper>
+    );
+  } else return null;
 }
 
 Banner.propTypes = {

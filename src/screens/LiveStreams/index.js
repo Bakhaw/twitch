@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import Banner from './Banner';
 import List from '../../components/List';
@@ -9,20 +10,21 @@ import API from '../../api';
 import { useFetch } from '../../api/hooks';
 import { layout } from '../../stylesheets';
 
-function Streams({ match }) {
+function LiveStreams({ match }) {
   const [streams, setStreams] = useState([]);
   const [maxObjects, setMaxObjects] = useState(20);
   const [isLoading, setIsLoading] = useState(false);
 
   const { gameId } = match.params;
-  const { data: dataStreams } = useFetch('getStreamsByGameId', [
+  const { data: dataStreams } = useFetch('getStreamsByParam', [
+    'game_id',
     gameId,
     maxObjects
   ]);
 
   const getData = async data => {
     await setIsLoading(true);
-    if (data.length > 0) {
+    if (data.length > 0 && !isLoading) {
       let streamersIds = '';
       data.forEach(({ user_id }, index) => {
         streamersIds += index === 0 ? `${user_id}` : `&id=${user_id}`;
@@ -62,7 +64,9 @@ function Streams({ match }) {
         >
           {streams.map(stream => (
             <li key={stream.id}>
-              <StreamCard stream={stream} />
+              <Link to={`/channel/${stream.user_id}`}>
+                <StreamCard stream={stream} />
+              </Link>
             </li>
           ))}
         </List>
@@ -72,4 +76,4 @@ function Streams({ match }) {
   );
 }
 
-export default Streams;
+export default LiveStreams;
