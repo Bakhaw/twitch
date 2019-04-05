@@ -8,6 +8,7 @@ const Wrapper = styled.ul`
     `repeat(auto-fill, ${props.columnWidth}px)`};
   justify-content: center;
   gap: 40px;
+  padding: 50px 20px;
 `;
 
 function List({ children, columnWidth, onBottomReached }) {
