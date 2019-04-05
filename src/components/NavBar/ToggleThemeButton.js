@@ -11,15 +11,17 @@ const Icon = styled.img`
 `;
 
 function ToggleThemeButton() {
-  const { theme, toggleTheme } = useContext(StateContext);
+  const { currentTheme, toggleTheme } = useContext(StateContext);
+
   return (
     <>
-      <Icon src={theme === 'Dark' ? MoonIcon : SunIcon} />
+      <Icon src={SunIcon} />
       <Switch
-        checked={theme === 'Dark'}
+        checked={currentTheme === 'Dark'}
         color='default'
         onChange={toggleTheme}
       />
+      <Icon src={MoonIcon} />
     </>
   );
 }
