@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import BottomBar from './BottomBar';
 import Chat from './Chat';
+import TopBar from './TopBar';
 import Video from './Video';
 import { layout } from '../../stylesheets';
 
@@ -24,6 +25,7 @@ const VideoWrapper = styled.div`
 
 const Stream = ({ channel }) => (
   <Wrapper>
+    <TopBar channel={channel} />
     <VideoWrapper>
       <Video channel={channel} />
       <BottomBar channel={channel} />
