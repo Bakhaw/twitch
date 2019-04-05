@@ -1,4 +1,7 @@
 export default {
+  Chat: {
+    width: 350
+  },
   GameCard: {
     height: 180,
     width: 140
