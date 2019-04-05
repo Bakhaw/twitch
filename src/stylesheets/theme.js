@@ -20,7 +20,7 @@ export default {
     },
     StreamsBanner: {
       background:
-        'linear-gradient(0deg, #fff 0, rgba(255, 255, 255, 0.9) 25%, rgba(255, 255, 255, 0.3))',
+        'linear-gradient(0deg, #faf9fa 0, rgba(255, 255, 255, 0.9) 25%, rgba(255, 255, 255, 0.3))',
       title: black.default
     },
     StreamCard: {
