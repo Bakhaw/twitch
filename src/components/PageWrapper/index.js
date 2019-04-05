@@ -11,20 +11,11 @@ const Wrapper = styled.main`
   background: ${props => props.colors.PageWrapper.background};
 `;
 
-const ChildrenWrapper = styled.div`
-  padding: 50px 20px;
-  min-height: calc(100% - 100px); /* 100px === padding just before: 50px */
-`;
-
 function PageWrapper({ children, isLoading }) {
   const colors = usePalette();
   return (
     <Wrapper colors={colors}>
-      {isLoading ? (
-        <Loader fullscreen />
-      ) : (
-        <ChildrenWrapper>{children}</ChildrenWrapper>
-      )}
+      {isLoading ? <Loader fullscreen /> : children}
     </Wrapper>
   );
 }
