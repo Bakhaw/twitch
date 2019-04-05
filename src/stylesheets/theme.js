@@ -8,6 +8,11 @@ export default {
       background: black.light,
       title: purple.default
     },
+    LiveStream: {
+      background: white.light,
+      boxShadow:
+        '0 15px 35px 0 rgba(42, 51, 83, 0.12), 0 5px 15px rgba(0, 0, 0, 0.06)'
+    },
     Loader: {
       background: white.default,
       color: black.default
@@ -37,6 +42,11 @@ export default {
     Loader: {
       background: purple.darkest,
       color: white.dark
+    },
+    LiveStream: {
+      background: purple.superDark,
+      boxShadow:
+        '0 15px 35px 0 rgba(0, 0, 0, 0.15), 0 5px 15px rgba(0, 0, 0, 0.1)'
     },
     NavBar: {
       background: purple.dark
