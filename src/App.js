@@ -1,9 +1,9 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 
-import { StateProvider } from './Context';
 import Router from './Router';
 import UpdateApp from './components/UpdateApp';
+import { StateProvider } from './Context';
 
 const GlobalStyle = createGlobalStyle`
  * {
