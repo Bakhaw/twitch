@@ -27,6 +27,7 @@ const API = {
     }
   },
   getStreamsByParam: async function(paramName, paramValue, maxObjects) {
+    // ? paramName: 'game_id' || 'user_id' || user_login
     try {
       const url = `${
         this.baseUrl
@@ -49,6 +50,16 @@ const API = {
   getUserById: async function(userId) {
     try {
       const url = `${this.baseUrl}/users/?id=${userId}`;
+      const { data } = await axios.get(url, config);
+      return data;
+    } catch (err) {
+      return console.log(err);
+    }
+  },
+  getVideosByParam: async function(paramName, paramValue) {
+    // ? paramName: 'id' || 'user_id' || 'game_id'
+    try {
+      const url = `${this.baseUrl}/videos/?${paramName}=${paramValue}`;
       const { data } = await axios.get(url, config);
       return data;
     } catch (err) {

@@ -5,6 +5,7 @@ import Home from '../screens/Home';
 import LiveStream from '../screens/LiveStream';
 import LiveStreams from '../screens/LiveStreams';
 import TopGames from '../screens/TopGames';
+import Videos from '../screens/Videos';
 import NavBar from '../components/NavBar';
 
 function Router() {
@@ -13,6 +14,7 @@ function Router() {
       <>
         <NavBar />
         <Switch>
+          <Route path='/videos/:userId' component={Videos} />
           <Route
             path='/directory/game/:gameId/channel/:userId'
             component={LiveStream}
