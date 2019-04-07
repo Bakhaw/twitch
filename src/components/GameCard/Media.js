@@ -7,9 +7,7 @@ import { layout, usePalette } from '../../stylesheets';
 const Image = styled.img`
   height: ${layout.GameCard.height}px;
   width: ${layout.GameCard.width}px;
-  border-radius: 6px;
   background: ${props => props.colors.GameCard.subtitle};
-  box-shadow: 0 5px 5px 0 rgba(42, 51, 83, 0.3), 0 5px 5px rgba(0, 0, 0, 0.26);
 `;
 
 function Media({ game: { box_art_url, name } }) {
