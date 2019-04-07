@@ -11,6 +11,6 @@ export default {
   },
   StreamCard: {
     height: 180,
-    width: 320
+    width: 300
   }
 };
