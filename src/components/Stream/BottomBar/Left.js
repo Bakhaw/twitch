@@ -20,7 +20,6 @@ const Wrapper = styled.div`
 const Image = styled.img`
   height: 80px;
   width: 60px;
-  border-radius: 6px;
   margin-right: 10px;
 `;
 
