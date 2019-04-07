@@ -56,10 +56,12 @@ const API = {
       return console.log(err);
     }
   },
-  getVideosByParam: async function(paramName, paramValue) {
+  getVideosByParam: async function(paramName, paramValue, maxObjects) {
     // ? paramName: 'id' || 'user_id' || 'game_id'
     try {
-      const url = `${this.baseUrl}/videos/?${paramName}=${paramValue}`;
+      const url = `${
+        this.baseUrl
+      }/videos/?${paramName}=${paramValue}&first=${maxObjects}`;
       const { data } = await axios.get(url, config);
       return data;
     } catch (err) {
