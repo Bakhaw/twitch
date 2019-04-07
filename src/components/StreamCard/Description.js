@@ -44,7 +44,7 @@ function Description({ stream: { img, user_name, title } }) {
   const colors = usePalette();
   return (
     <Wrapper colors={colors}>
-      <Avatar alt={`${user_name} avatar`} src={img} />
+      {img && <Avatar alt={`${user_name} avatar`} src={img} />}
       <div>
         <Title colors={colors}>{title}</Title>
         <Subtitle colors={colors}>{user_name}</Subtitle>

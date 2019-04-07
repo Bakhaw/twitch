@@ -34,7 +34,9 @@ const Wrapper = styled.div`
   }
 `;
 
-function Media({ stream: { thumbnail_url, user_name, viewer_count } }) {
+function Media({
+  stream: { thumbnail_url, user_name, view_count, viewer_count }
+}) {
   const colors = usePalette();
   const formatViews = views => {
     // ty https://stackoverflow.com/a/40724354
@@ -51,14 +53,28 @@ function Media({ stream: { thumbnail_url, user_name, viewer_count } }) {
     return scaled.toFixed(1) + suffix;
   };
 
+  const formatImgUrl = imgUrl => {
+    const formattedUrl = imgUrl
+      .replace('%{width}', 1920)
+      .replace('%{height}', 1080)
+      .replace('{width}', 1920)
+      .replace('{height}', 1080);
+
+    return formattedUrl;
+  };
+
+  const views = viewer_count
+    ? `${formatViews(viewer_count)} viewers`
+    : `${formatViews(view_count)} views`;
+
   return (
     <Wrapper>
       <Image
         alt={`${user_name} stream preview`}
         colors={colors}
-        src={`${thumbnail_url.slice(0, -21)}-1920x1080.jpg`}
+        src={formatImgUrl(thumbnail_url)}
       />
-      <Viewers>{formatViews(viewer_count)} viewers</Viewers>
+      <Viewers>{views}</Viewers>
     </Wrapper>
   );
 }

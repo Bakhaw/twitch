@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { usePalette } from '../../stylesheets';
@@ -47,7 +48,9 @@ function TopBar({ channel }) {
         <h5>{channel.display_name}</h5>
       </div>
       <div>
-        <span>Videos</span>
+        <Link to={`/videos/${channel.id}`}>
+          <span>Videos</span>
+        </Link>
         <span>Followers</span>
       </div>
     </Wrapper>
