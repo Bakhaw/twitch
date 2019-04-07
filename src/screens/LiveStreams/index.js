@@ -52,7 +52,7 @@ function LiveStreams({ match }) {
 
   useEffect(() => {
     getData(dataStreams);
-  }, [dataStreams, maxObjects]);
+  }, [dataStreams]);
 
   return (
     <>
