@@ -56,6 +56,17 @@ const API = {
       return console.log(err);
     }
   },
+  getUserFollowersCount: async function(userId) {
+    try {
+      const url = `${this.baseUrl}/users/follows/?to_id=${userId}`;
+      const {
+        data: { total }
+      } = await axios.get(url, config);
+      return { data: total };
+    } catch (err) {
+      return console.log(err);
+    }
+  },
   getVideosByParam: async function(paramName, paramValue, maxObjects) {
     // ? paramName: 'id' || 'user_id' || 'game_id'
     try {

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { usePalette } from '../../stylesheets';
+import { useFetch } from '../../api/hooks';
 
 const Wrapper = styled.div`
   display: flex;
@@ -38,6 +39,10 @@ const Image = styled.img`
 
 function TopBar({ channel }) {
   const colors = usePalette();
+  const { data: followersCount } = useFetch('getUserFollowersCount', [
+    channel.id
+  ]);
+
   return (
     <Wrapper colors={colors}>
       <div>
@@ -51,7 +56,7 @@ function TopBar({ channel }) {
         <Link to={`/videos/${channel.id}`}>
           <span>Videos</span>
         </Link>
-        <span>Followers</span>
+        <span>Followers {followersCount.toLocaleString()}</span>
       </div>
     </Wrapper>
   );
