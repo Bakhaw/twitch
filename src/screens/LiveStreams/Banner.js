@@ -28,6 +28,15 @@ const Wrapper = styled.div`
       margin-left: 10px;
       width: 100%;
     }
+    @media (max-width: 1000px) {
+      flex-direction: column;
+      align-items: center;
+      .GameCard__Title {
+        margin: 15px 0 0 0;
+        text-align: center;
+        font-size: 26px;
+      }
+    }
   }
 `;
 
