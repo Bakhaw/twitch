@@ -14,6 +14,9 @@ const Wrapper = styled.div`
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    @media (max-width: 800px) {
+      width: calc(100vw - 100px); /* 100px is left and right total padding */
+    }
   }
 `;
 
@@ -21,6 +24,9 @@ const Image = styled.img`
   height: 80px;
   width: 60px;
   margin-right: 10px;
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;
 
 const Title = styled.h2`

@@ -19,6 +19,13 @@ const ViewsWrapper = styled.div`
     margin: 0;
     font-size: 16px;
   }
+  @media (max-width: 800px) {
+    flex-direction: row;
+    justify-content: flex-end;
+    span:last-child {
+      display: none;
+    }
+  }
 `;
 
 const LiveViewers = styled.span`

@@ -21,6 +21,9 @@ const VideoWrapper = styled.div`
   padding: 40px 30px;
   width: calc(100vw - ${layout.Chat.width}px);
   overflow-y: scroll;
+  @media (max-width: 800px) {
+    width: 100vw;
+  }
 `;
 
 const Stream = ({ channel }) => (

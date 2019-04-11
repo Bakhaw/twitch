@@ -28,6 +28,14 @@ const Wrapper = styled.div`
   span {
     font-size: 16px;
   }
+  @media (max-width: 800px) {
+    div:last-child {
+      span:nth-child(2) {
+        /* Hides the Followers count */
+        display: none;
+      }
+    }
+  }
 `;
 
 const Image = styled.img`

@@ -18,6 +18,9 @@ const Wrapper = styled.div`
     -o-border-radius: 6px !important;
     border-radius: 6px !important;
   }
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;
 
 const Chat = ({ channel }) => {

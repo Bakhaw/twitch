@@ -15,6 +15,9 @@ const Wrapper = styled.div`
   background: ${props => props.colors.LiveStream.background};
   box-shadow: ${props => props.colors.LiveStream.boxShadow};
   border-radius: 6px;
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
 `;
 
 function BottomBar({ channel, match }) {
