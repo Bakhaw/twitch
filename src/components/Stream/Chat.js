@@ -18,7 +18,7 @@ const Wrapper = styled.div`
     -o-border-radius: 6px !important;
     border-radius: 6px !important;
   }
-  @media (max-width: 800px) {
+  @media (max-width: 1000px) {
     display: none;
   }
 `;

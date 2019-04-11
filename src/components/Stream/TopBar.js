@@ -28,7 +28,7 @@ const Wrapper = styled.div`
   span {
     font-size: 16px;
   }
-  @media (max-width: 800px) {
+  @media (max-width: 1000px) {
     div:last-child {
       span:nth-child(2) {
         /* Hides the Followers count */
