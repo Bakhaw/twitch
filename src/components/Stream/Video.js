@@ -5,6 +5,9 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   height: 100%;
   margin: 20px 0;
+  @media (max-width: 1000px) {
+    height: 50vh;
+  }
 `;
 
 const Video = ({ channel }) => (
