@@ -9,6 +9,10 @@ const Wrapper = styled.ul`
   justify-content: center;
   gap: 40px;
   padding: 50px 20px;
+  @media (max-width: 1000px) {
+    gap: 40px 15px;
+    padding: 20px 0;
+  }
 `;
 
 function List({ children, columnWidth, onBottomReached }) {
