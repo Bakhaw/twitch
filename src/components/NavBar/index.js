@@ -12,6 +12,9 @@ const Wrapper = styled.nav`
   padding: 0 40px;
   height: ${layout.NavBar.height};
   background: ${props => props.colors.NavBar.background};
+  @media (max-width: 1000px) {
+    padding: 0 10px;
+  }
 `;
 
 function NavBar() {

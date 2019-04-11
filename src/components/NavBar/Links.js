@@ -16,6 +16,7 @@ const NavLink = styled.li`
   position: relative;
   a {
     color: ${props => props.color};
+    font-size: 16px;
     :hover {
       color: ${palette.white.default};
     }
