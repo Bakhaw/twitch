@@ -11,6 +11,8 @@ export function useFetch(method, methodParams = [], initialState = []) {
 
   useEffect(() => {
     fetchData();
+    // TODO cleanup function here
+    // TODO return () => data;
   }, [...methodParams]);
 
   return { data };
