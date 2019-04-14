@@ -54,10 +54,14 @@ function LiveStreams({ match }) {
     getData(dataStreams);
   }, [dataStreams]);
 
+  // TODO: API request to filter by languages
+  // console.log(streams.map(str => str.language));
   return (
     <>
       <Banner gameId={gameId} />
       <PageWrapper isLoading={streams.length === 0}>
+        <label>Languages</label>
+        <button>All</button>
         <List
           columnWidth={layout.StreamCard.width}
           onBottomReached={onBottomReached}

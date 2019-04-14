@@ -3,20 +3,27 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import GameCard from '../../components/GameCard';
+import PrevButton from '../../components/PrevButton';
 import { useFetch } from '../../api/hooks';
 import { usePalette } from '../../stylesheets';
 
 const Wrapper = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   background-color: ${props => props.colors.PageWrapper.background};
   background-image: ${props => props.colors.StreamsBanner.background},
     url(${props => props.backgroundImage});
   background-position: center;
   background-size: cover;
-  padding: 35px 25px;
+  padding: 25px;
   height: 200px;
   & .GameCard {
     cursor: unset;
     display: flex;
+    .GameCard__Image  {
+      margin: 0 10px;
+    }
     &:hover .GameCard__Title {
       text-decoration: unset;
     }
@@ -25,7 +32,6 @@ const Wrapper = styled.div`
       font-size: 40px;
       font-weight: 500;
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-      margin-left: 10px;
       width: 100%;
     }
     @media (max-width: 1000px) {
@@ -51,6 +57,7 @@ function Banner({ gameId }) {
     )}-1920x1080.jpg`;
     return (
       <Wrapper backgroundImage={backgroundImage} colors={colors}>
+        <PrevButton to='/directory' />
         <GameCard game={game[0]} />
       </Wrapper>
     );
