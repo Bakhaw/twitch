@@ -6,7 +6,6 @@ import { layout, usePalette } from '../../stylesheets';
 
 const Image = styled.img`
   background: ${props => props.colors.StreamCard.background};
-  height: ${layout.StreamCard.height}px;
   width: 100%;
   border-radius: 6px;
   box-shadow: 0 5px 5px 0 rgba(42, 51, 83, 0.3), 0 5px 5px rgba(0, 0, 0, 0.26);
@@ -25,6 +24,8 @@ const Viewers = styled.div`
 
 const Wrapper = styled.div`
   cursor: pointer;
+  background: ${props => props.colors.StreamCard.background};
+  height: ${layout.StreamCard.height}px;
   position: relative;
   &:hover {
     ${Image} {
@@ -68,7 +69,7 @@ function Media({
     : `${formatViews(view_count)} views`;
 
   return (
-    <Wrapper>
+    <Wrapper colors={colors}>
       <Image
         alt={`${user_name} stream preview`}
         colors={colors}

@@ -33,6 +33,7 @@ const Subtitle = styled.p`
 const Wrapper = styled.div`
   cursor: pointer;
   display: flex;
+  height: 50px;
   &:hover {
     ${Title} {
       text-decoration: underline;

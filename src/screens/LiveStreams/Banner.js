@@ -24,10 +24,16 @@ const Wrapper = styled.div`
     .GameCard__Image  {
       margin: 0 15px 0 40px;
     }
-    &:hover .GameCard__Title {
-      text-decoration: unset;
+    &:hover {
+      .GameCard__Image {
+        box-shadow: none;
+      }
+      .GameCard__Title {
+        text-decoration: unset;
+      }
     }
     .GameCard__Title {
+      margin-left: 40px;
       color: ${props => props.colors.StreamsBanner.title};
       font-size: 40px;
       font-weight: 500;

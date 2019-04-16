@@ -5,7 +5,7 @@ import { palette, usePalette } from '../../stylesheets';
 import { useFetch } from '../../api/hooks';
 
 const Wrapper = styled.div`
-  margin: 0 20px;
+  margin: 30px 20px;
 `;
 
 const Button = styled.button`

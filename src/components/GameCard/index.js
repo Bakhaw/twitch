@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Description from './Description';
@@ -20,8 +21,10 @@ const Wrapper = styled.div`
 
 const GameCard = ({ game }) => (
   <Wrapper className='GameCard'>
-    <Media game={game} />
-    <Description game={game} />
+    <Link to={`/directory/game/${game.id}`}>
+      <Media game={game} />
+      <Description game={game} />
+    </Link>
   </Wrapper>
 );
 
