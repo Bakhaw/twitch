@@ -17,7 +17,7 @@ class Collection extends React.PureComponent {
     super(props);
     this.state = {
       columnWidth: layout[props.type].width,
-      gutterSize: 25,
+      gutterSize: layout[props.type].gutterSize,
       height: window.screen.height,
       overscanByPixels: 0,
       windowScrollerEnabled: true

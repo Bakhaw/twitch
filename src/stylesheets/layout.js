@@ -3,6 +3,7 @@ export default {
     width: 350
   },
   GameCard: {
+    gutterSize: 45,
     height: 180,
     width: 140
   },
@@ -10,6 +11,7 @@ export default {
     height: '50px'
   },
   StreamCard: {
+    gutterSize: 30,
     height: 180,
     width: 300
   }
