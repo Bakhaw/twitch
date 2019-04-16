@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Banner from './Banner';
+import ChangeLanguage from './ChangeLanguage';
 import List from '../../components/List';
 import Loader from '../../components/Loader';
 import PageWrapper from '../../components/PageWrapper';
@@ -44,24 +45,25 @@ function LiveStreams({ match }) {
     await setIsLoading(false);
   };
 
+  useEffect(() => {
+    getData(dataStreams);
+  }, [dataStreams]);
+
   const onBottomReached = () => {
     // ? this ternary is checking if we already got 100 objects, which is the max
     // ? we can fetch using Twitch API
     setMaxObjects(prevState => (prevState < 100 ? prevState + 20 : prevState));
   };
 
-  useEffect(() => {
-    getData(dataStreams);
-  }, [dataStreams]);
-
-  // TODO: API request to filter by languages
-  // console.log(streams.map(str => str.language));
   return (
     <>
       <Banner gameId={gameId} />
       <PageWrapper isLoading={streams.length === 0}>
-        <label>Languages</label>
-        <button>All</button>
+        <ChangeLanguage
+          gameId={gameId}
+          getData={getData}
+          maxObjects={maxObjects}
+        />
         <List
           columnWidth={layout.StreamCard.width}
           onBottomReached={onBottomReached}
