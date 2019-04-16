@@ -22,7 +22,7 @@ const Wrapper = styled.div`
     cursor: unset;
     display: flex;
     .GameCard__Image  {
-      margin: 0 10px;
+      margin: 0 15px 0 40px;
     }
     &:hover .GameCard__Title {
       text-decoration: unset;
