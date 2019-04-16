@@ -6,6 +6,8 @@ import { layout, usePalette } from '../../stylesheets';
 
 const Image = styled.img`
   background: ${props => props.colors.StreamCard.background};
+  min-height: ${layout.StreamCard.height}px;
+  min-width: 100%;
   width: 100%;
   border-radius: 6px;
   box-shadow: 0 5px 5px 0 rgba(42, 51, 83, 0.3), 0 5px 5px rgba(0, 0, 0, 0.26);
@@ -24,9 +26,8 @@ const Viewers = styled.div`
 
 const Wrapper = styled.div`
   cursor: pointer;
-  background: ${props => props.colors.StreamCard.background};
-  height: ${layout.StreamCard.height}px;
   position: relative;
+  border-radius: 6px;
   &:hover {
     ${Image} {
       box-shadow: 0 8px 8px 0 rgba(42, 51, 83, 0.3),

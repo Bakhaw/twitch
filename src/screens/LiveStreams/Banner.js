@@ -33,7 +33,6 @@ const Wrapper = styled.div`
       }
     }
     .GameCard__Title {
-      margin-left: 40px;
       color: ${props => props.colors.StreamsBanner.title};
       font-size: 40px;
       font-weight: 500;

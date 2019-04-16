@@ -5,10 +5,15 @@ import { palette, usePalette } from '../../stylesheets';
 import { useFetch } from '../../api/hooks';
 
 const Wrapper = styled.div`
-  margin: 30px 20px;
+  margin: 0 0 30px 20px;
 `;
 
 const Button = styled.button`
+  // TODO remove this when language filter is working
+  filter: opacity(25%);
+  cursor: not-allowed;
+  pointer-events: none;
+
   padding: 8px 13px;
   margin: 0 10px;
   font-size: 14px;

@@ -20,12 +20,12 @@ const Wrapper = styled.div`
 `;
 
 const GameCard = ({ game }) => (
-  <Wrapper className='GameCard'>
-    <Link to={`/directory/game/${game.id}`}>
+  <Link to={`/directory/game/${game.id}`}>
+    <Wrapper className='GameCard'>
       <Media game={game} />
       <Description game={game} />
-    </Link>
-  </Wrapper>
+    </Wrapper>
+  </Link>
 );
 
 GameCard.propTypes = {
