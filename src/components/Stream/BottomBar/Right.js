@@ -10,8 +10,10 @@ const ViewsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 120px;
   span {
     display: flex;
+    justify-content: flex-end;
     align-items: center;
     margin: 10px 0;
   }
@@ -20,6 +22,7 @@ const ViewsWrapper = styled.div`
     font-size: 16px;
   }
   @media (max-width: 1000px) {
+    width: 100%;
     flex-direction: row;
     justify-content: flex-end;
     span:last-child {

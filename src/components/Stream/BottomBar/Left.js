@@ -3,17 +3,19 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { usePalette } from '../../../stylesheets';
+import { layout, usePalette } from '../../../stylesheets';
 
 const Wrapper = styled.div`
   display: flex;
   h2,
   h3 {
     font-weight: normal;
-    width: 100%;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    width: calc(
+      100vw - (290px + ${layout.Chat.width}px)
+    ); /* 290px is an addition of all widths/paddings/margins related to BottomBar */
     @media (max-width: 1000px) {
       width: calc(100vw - 60px); /* 60px is left and right total padding */
     }
