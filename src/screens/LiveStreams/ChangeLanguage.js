@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 `;
 
 const Button = styled.button`
-  padding: 10px 30px;
+  padding: 8px 13px;
   margin: 0 10px;
   font-size: 14px;
   border-radius: 6px;
@@ -21,7 +21,6 @@ const Button = styled.button`
 
 function ChangeLanguage({ gameId, getData, maxObjects }) {
   const [currentLanguage, setCurrentLanguage] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
   const { data: dataStreamsByLanguage } = useFetch('getStreamsByParam', [
     'language',
     currentLanguage,
@@ -35,9 +34,7 @@ function ChangeLanguage({ gameId, getData, maxObjects }) {
   };
 
   const refreshData = async () => {
-    await setIsLoading(true);
     await getData(dataStreamsByLanguage);
-    await setIsLoading(false);
   };
 
   useEffect(() => {
