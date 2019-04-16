@@ -10,22 +10,22 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: ${props => props.height};
-  background-color: ${props => props.colors.Loader.background};
+  /* background-color: ${props => props.colors.Loader.background}; */
   div  {
     color: ${props => props.colors.Loader.color};
   }
 `;
 
-function Loader({ fullscreen }) {
+function Loader({ fullscreen, size = 30, wrapperHeight = '150px' }) {
   const colors = usePalette();
   const height = fullscreen
     ? `calc(
     100vh - (50px + ${layout.NavBar.height})
-  )`
-    : '150px'; /* 50px is <PageWrapper /> padding */
+  )` /* 50px is <PageWrapper /> padding */
+    : wrapperHeight;
   return (
     <Wrapper colors={colors} height={height}>
-      <CircularProgress size={30} />
+      <CircularProgress size={size} />
     </Wrapper>
   );
 }
