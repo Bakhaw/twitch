@@ -3,7 +3,7 @@ export default {
     width: 350
   },
   GameCard: {
-    gutterSize: 45,
+    gutterSize: 30,
     height: 180,
     width: 140
   },

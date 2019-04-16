@@ -42,7 +42,7 @@ class Collection extends React.PureComponent {
     const currentData = data[index];
     const containerStyle = {
       ...style,
-      margin: '0 35px',
+      margin: '0 20px',
       height: layout[type].height,
       width: columnWidth
     };
