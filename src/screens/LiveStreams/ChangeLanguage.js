@@ -73,7 +73,7 @@ function ChangeLanguage({ gameId, getData, maxObjects }) {
             key={id}
             colors={colors}
             isActive={isActive}
-            onClick={() => filterByLanguage(langKey)}
+            // onClick={() => filterByLanguage(langKey)}
           >
             {label}
           </Button>
