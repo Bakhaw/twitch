@@ -26,12 +26,17 @@ const API = {
       return console.log(err);
     }
   },
-  getStreamsByParam: async function(paramName, paramValue, maxObjects) {
-    // ? paramName: 'game_id' || 'user_id' || user_login
+  getStreamsByParam: async function(
+    paramName,
+    paramValue,
+    maxObjects,
+    additionalQuery = ''
+  ) {
+    // ? paramName: 'game_id' || language || 'user_id' || user_login
     try {
       const url = `${
         this.baseUrl
-      }/streams/?${paramName}=${paramValue}&first=${maxObjects}`;
+      }/streams/?${paramName}=${paramValue}&first=${maxObjects}${additionalQuery}`;
       const { data } = await axios.get(url, config);
       return data;
     } catch (err) {
