@@ -9,7 +9,6 @@ import { useFetch } from '../../api/hooks';
 
 function LiveStreams({ match }) {
   const [streams, setStreams] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
 
   const { gameId } = match.params;
   const { data: dataStreams } = useFetch('getStreamsByParam', [
@@ -19,8 +18,7 @@ function LiveStreams({ match }) {
   ]);
 
   const getData = async data => {
-    await setIsLoading(true);
-    if (data.length > 0 && !isLoading) {
+    if (data.length > 0) {
       let streamersIds = '';
       data.forEach(({ user_id }, index) => {
         streamersIds += index === 0 ? `${user_id}` : `&id=${user_id}`;
@@ -37,7 +35,6 @@ function LiveStreams({ match }) {
       });
       await setStreams(newStreams);
     }
-    await setIsLoading(false);
   };
 
   useEffect(() => {
