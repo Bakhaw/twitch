@@ -49,11 +49,7 @@ function LiveStreams({ match }) {
       <Banner gameId={gameId} />
       <PageWrapper isLoading={streams.length === 0}>
         <ChangeLanguage gameId={gameId} getData={getData} maxObjects={100} />
-        <Collection
-          cellCount={streams.length}
-          data={streams}
-          type='StreamCard'
-        />
+        <Collection data={streams} type='StreamCard' />
       </PageWrapper>
     </>
   );
