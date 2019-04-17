@@ -6,11 +6,14 @@ import { useFetch } from '../../api/hooks';
 
 const Wrapper = styled.div`
   margin: 0 0 30px 20px;
+  p {
+    color: ${props => props.colors.StreamsBanner.title};
+  }
 `;
 
 const Button = styled.button`
   padding: 8px 13px;
-  margin: 0 10px;
+  margin-right: 10px;
   font-size: 14px;
   border-radius: 6px;
   border: none;
@@ -49,18 +52,35 @@ function ChangeLanguage({ gameId, getData, maxObjects }) {
       langKey: ''
     },
     {
-      label: 'Français',
+      label: 'ENG',
+      langKey: 'en'
+    },
+    {
+      label: 'KOR',
+      langKey: 'ko'
+    },
+    {
+      label: 'FR',
       langKey: 'fr'
     },
     {
-      label: 'English',
-      langKey: 'en'
+      label: 'ES',
+      langKey: 'es'
+    },
+    {
+      label: 'DE',
+      langKey: 'de'
+    },
+    {
+      label: 'IT',
+      langKey: 'it'
     }
   ];
 
   const colors = usePalette();
   return (
-    <Wrapper>
+    <Wrapper colors={colors}>
+      <p>Filter by language</p>
       {languages.map(({ label, langKey }, id) => {
         const isActive = langKey === currentLanguage;
         return (
