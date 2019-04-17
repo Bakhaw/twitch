@@ -30,6 +30,11 @@ class Collection extends React.PureComponent {
     this._columnCount = 0;
   }
 
+  async componentDidUpdate() {
+    // TODO do a safe check before calling forceUdpate();
+    await this._masonry.forceUpdate();
+  }
+
   _calculateColumnCount = () => {
     const { columnWidth, gutterSize } = this.state;
 
@@ -111,7 +116,7 @@ class Collection extends React.PureComponent {
     return (
       <Masonry
         autoHeight={windowScrollerEnabled}
-        cellCount={this.props.cellCount}
+        cellCount={this.props.data.length}
         cellMeasurerCache={this._cache}
         cellPositioner={this._cellPositioner}
         cellRenderer={this._cellRenderer}
