@@ -9,7 +9,7 @@ function TopGames() {
 
   return (
     <PageWrapper isLoading={topGames.length === 0}>
-      <Collection cellCount={topGames.length} data={topGames} type='GameCard' />
+      <Collection data={topGames} type='GameCard' />
     </PageWrapper>
   );
 }

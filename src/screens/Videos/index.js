@@ -15,7 +15,7 @@ function Videos({ match }) {
 
   return (
     <PageWrapper isLoading={videos.length === 0}>
-      <Collection cellCount={videos.length} data={videos} type='StreamCard' />
+      <Collection data={videos} type='StreamCard' />
     </PageWrapper>
   );
 }
