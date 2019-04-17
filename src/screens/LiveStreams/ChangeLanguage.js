@@ -9,11 +9,6 @@ const Wrapper = styled.div`
 `;
 
 const Button = styled.button`
-  // TODO remove this when language filter is working
-  filter: opacity(25%);
-  cursor: not-allowed;
-  pointer-events: none;
-
   padding: 8px 13px;
   margin: 0 10px;
   font-size: 14px;
@@ -73,7 +68,7 @@ function ChangeLanguage({ gameId, getData, maxObjects }) {
             key={id}
             colors={colors}
             isActive={isActive}
-            // onClick={() => filterByLanguage(langKey)}
+            onClick={() => filterByLanguage(langKey)}
           >
             {label}
           </Button>
