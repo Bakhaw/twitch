@@ -31,7 +31,7 @@ class Collection extends React.PureComponent {
   }
 
   async componentDidUpdate() {
-    // TODO do a safe check before calling forceUdpate();
+    // TODO find a safer check before calling forceUdpate();
     await this._masonry.forceUpdate();
   }
 
@@ -51,6 +51,7 @@ class Collection extends React.PureComponent {
       height: layout[type].height,
       width: columnWidth
     };
+
     const children =
       type === 'StreamCard' ? (
         <StreamCard stream={currentData} />

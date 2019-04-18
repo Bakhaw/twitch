@@ -21,7 +21,6 @@ const Button = styled.button`
     isActive ? colors.NavBar.background : palette.grey.dark};
 `;
 
-// TODO add loading and show <Loader /> when language change
 function ChangeLanguage({ currentLanguage, setCurrentLanguage }) {
   const filterByLanguage = async language => {
     if (currentLanguage === language) return;
@@ -34,28 +33,16 @@ function ChangeLanguage({ currentLanguage, setCurrentLanguage }) {
       langKey: ''
     },
     {
-      label: 'ENG',
+      label: 'English',
       langKey: 'en'
     },
     {
-      label: 'KOR',
+      label: '한국어',
       langKey: 'ko'
     },
     {
-      label: 'FR',
+      label: 'Français',
       langKey: 'fr'
-    },
-    {
-      label: 'ES',
-      langKey: 'es'
-    },
-    {
-      label: 'DE',
-      langKey: 'de'
-    },
-    {
-      label: 'IT',
-      langKey: 'it'
     }
   ];
 

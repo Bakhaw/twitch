@@ -9,9 +9,10 @@ import { useFetch } from '../../api/hooks';
 
 function LiveStreams({ match }) {
   const { gameId } = match.params;
-  const [currentLanguage, setCurrentLanguage] = useState('');
+  const [currentLanguage, setCurrentLanguage] = useState(''); // '' means no language specified
   const [isLoading, setIsLoading] = useState(false);
   const [streams, setStreams] = useState([]);
+
   const { data: dataStreams } = useFetch('getStreamsByParam', [
     'game_id',
     gameId,
@@ -20,13 +21,14 @@ function LiveStreams({ match }) {
   ]);
 
   const getData = async () => {
-    await setIsLoading(true);
     if (dataStreams.length > 0) {
+      await setIsLoading(true);
       let streamersIds = '';
       dataStreams.forEach(({ user_id }, index) => {
         streamersIds += index === 0 ? `${user_id}` : `&id=${user_id}`;
       });
 
+      // TODO try to get dataUsers using useFetch();
       const { data: dataUsers } = await API.getMultipleUsersById(streamersIds);
       const newStreams = [...dataStreams];
 
@@ -37,8 +39,8 @@ function LiveStreams({ match }) {
         };
       });
       await setStreams(newStreams);
+      await setIsLoading(false);
     }
-    await setIsLoading(false);
   };
 
   useEffect(() => {
@@ -48,11 +50,11 @@ function LiveStreams({ match }) {
   return (
     <>
       <Banner gameId={gameId} />
+      <ChangeLanguage
+        currentLanguage={currentLanguage}
+        setCurrentLanguage={setCurrentLanguage}
+      />
       <PageWrapper isLoading={isLoading}>
-        <ChangeLanguage
-          currentLanguage={currentLanguage}
-          setCurrentLanguage={setCurrentLanguage}
-        />
         <Collection data={streams} type='StreamCard' />
       </PageWrapper>
     </>
