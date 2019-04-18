@@ -27,30 +27,59 @@ const StreamsWrapper = styled.div`
     position: absolute;
     height: 450px;
     width: 950px;
-    transition: all 0.4s ease-out;
+    transition: all 450ms ease 0s;
+  }
+  .CarouselCard-${props => props.currentSlideIndex - 4} {
+    right: 150px;
+    opacity: 0.9;
+    transform: translateX(27.5vw) translateX(-25%) scale(0.85);
+    z-index: 2;
+  }
+  .CarouselCard-${props => props.currentSlideIndex - 3} {
+    right: 75px;
+    opacity: 0.9;
+    transform: translateX(48vw) translateX(-50%) scale(0.7);
+    z-index: 1;
   }
   .CarouselCard-${props => props.currentSlideIndex - 2} {
     left: 75px;
     transform: translateX(-48vw) translateX(50%) scale(0.7);
+    opacity: 0.9;
     z-index: 1;
   }
   .CarouselCard-${props => props.currentSlideIndex - 1} {
     left: 150px;
-    transform: translateX(-26vw) translateX(25%) scale(0.85);
+    opacity: 0.9;
+    transform: translateX(-27.5vw) translateX(25%) scale(0.85);
     z-index: 2;
   }
   .CarouselCard-${props => props.currentSlideIndex} {
+    opacity: 1;
     z-index: 3;
   }
   .CarouselCard-${props => props.currentSlideIndex + 1} {
     right: 150px;
-    transform: translateX(26vw) translateX(-25%) scale(0.85);
+    opacity: 0.9;
+    transform: translateX(27.5vw) translateX(-25%) scale(0.85);
     z-index: 2;
   }
   .CarouselCard-${props => props.currentSlideIndex + 2} {
     right: 75px;
+    opacity: 0.9;
     transform: translateX(48vw) translateX(-50%) scale(0.7);
     z-index: 1;
+  }
+  .CarouselCard-${props => props.currentSlideIndex + 3} {
+    left: 75px;
+    transform: translateX(-48vw) translateX(50%) scale(0.7);
+    opacity: 0.9;
+    z-index: 1;
+  }
+  .CarouselCard-${props => props.currentSlideIndex + 4} {
+    left: 150px;
+    opacity: 0.9;
+    transform: translateX(-27.5vw) translateX(25%) scale(0.85);
+    z-index: 2;
   }
 `;
 
@@ -58,10 +87,10 @@ function reducer(state, action) {
   switch (action) {
     case 'PREV_SLIDE':
       // does nothing if we are at the first slide and we click prev button
-      return state === 0 ? state : state - 1;
+      return state === 0 ? 4 : state - 1;
     case 'NEXT_SLIDE':
       // does nothing if we are at the last slide and we click next button
-      return state === 4 ? state : state + 1;
+      return state === 4 ? 0 : state + 1;
     default:
       return state;
   }

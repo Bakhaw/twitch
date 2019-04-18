@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { usePalette } from '../../stylesheets';
+
 const Wrapper = styled.div`
   display: flex;
   height: 100%;
@@ -13,19 +15,15 @@ const Wrapper = styled.div`
   iframe,
   object,
   embed {
-    overflow: hidden;
-    /* border: 3px solid #000; */
-    -webkit-border-radius: 6px 0 0 6px !important;
-    -ms-border-radius: 6px 0 0 6px !important;
-    -o-border-radius: 6px 0 0 6px !important;
-    border-radius: 6px 0 0 6px !important;
     width: 100%;
   }
 `;
 
 const LiveDescription = styled.div`
-  background: #fff;
+  color: ${props => props.colors.StreamCard.title};
+  background: ${props => props.colors.LiveStream.background};
   border-radius: 0 6px 6px 0;
+  box-shadow: ${props => props.colors.LiveStream.boxShadow};
   padding: 10px 20px;
   height: calc(100% - 20px);
   width: 210px;
@@ -58,6 +56,8 @@ function CarouselCard({ channel, isCardActive = false, index, stream }) {
 
     return formattedUrl;
   };
+
+  const colors = usePalette();
   return (
     <Wrapper className={`CarouselCard CarouselCard-${index}`}>
       {isCardActive ? (
@@ -77,7 +77,7 @@ function CarouselCard({ channel, isCardActive = false, index, stream }) {
         />
       )}
       {isCardActive && (
-        <LiveDescription>
+        <LiveDescription colors={colors}>
           <Row>
             <img
               alt={`${channel.login} avatar`}
