@@ -8,24 +8,27 @@ import API from '../../api';
 import { useFetch } from '../../api/hooks';
 
 function LiveStreams({ match }) {
-  const [streams, setStreams] = useState([]);
-
   const { gameId } = match.params;
+  const [currentLanguage, setCurrentLanguage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [streams, setStreams] = useState([]);
   const { data: dataStreams } = useFetch('getStreamsByParam', [
     'game_id',
     gameId,
-    100
+    100,
+    `&language=${currentLanguage}`
   ]);
 
-  const getData = async data => {
-    if (data.length > 0) {
+  const getData = async () => {
+    await setIsLoading(true);
+    if (dataStreams.length > 0) {
       let streamersIds = '';
-      data.forEach(({ user_id }, index) => {
+      dataStreams.forEach(({ user_id }, index) => {
         streamersIds += index === 0 ? `${user_id}` : `&id=${user_id}`;
       });
 
       const { data: dataUsers } = await API.getMultipleUsersById(streamersIds);
-      const newStreams = [...data];
+      const newStreams = [...dataStreams];
 
       dataUsers.forEach(({ profile_image_url }, index) => {
         newStreams[index] = {
@@ -35,17 +38,21 @@ function LiveStreams({ match }) {
       });
       await setStreams(newStreams);
     }
+    await setIsLoading(false);
   };
 
   useEffect(() => {
-    getData(dataStreams);
+    getData();
   }, [dataStreams]);
 
   return (
     <>
       <Banner gameId={gameId} />
-      <PageWrapper isLoading={streams.length === 0}>
-        <ChangeLanguage gameId={gameId} getData={getData} maxObjects={100} />
+      <PageWrapper isLoading={isLoading}>
+        <ChangeLanguage
+          currentLanguage={currentLanguage}
+          setCurrentLanguage={setCurrentLanguage}
+        />
         <Collection data={streams} type='StreamCard' />
       </PageWrapper>
     </>

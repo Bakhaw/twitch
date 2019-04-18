@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import { palette, usePalette } from '../../stylesheets';
-import { useFetch } from '../../api/hooks';
 
 const Wrapper = styled.div`
   margin: 0 0 30px 20px;
@@ -22,29 +21,12 @@ const Button = styled.button`
     isActive ? colors.NavBar.background : palette.grey.dark};
 `;
 
-function ChangeLanguage({ gameId, getData, maxObjects }) {
-  const [currentLanguage, setCurrentLanguage] = useState('');
-  const { data: dataStreamsByLanguage } = useFetch('getStreamsByParam', [
-    'language',
-    currentLanguage,
-    maxObjects,
-    `&game_id=${gameId}`
-  ]);
-
+// TODO add loading and show <Loader /> when language change
+function ChangeLanguage({ currentLanguage, setCurrentLanguage }) {
   const filterByLanguage = async language => {
     if (currentLanguage === language) return;
     await setCurrentLanguage(language);
   };
-
-  const refreshData = async () => {
-    await getData(dataStreamsByLanguage);
-  };
-
-  useEffect(() => {
-    if (dataStreamsByLanguage.length > 0) {
-      refreshData();
-    }
-  }, [dataStreamsByLanguage]);
 
   const languages = [
     {
