@@ -7,11 +7,6 @@ const Wrapper = styled.div`
   display: flex;
   height: 100%;
   width: 100%;
-  img {
-    border-radius: 6px;
-    height: 100%;
-    width: 100%;
-  }
   iframe,
   object,
   embed {
@@ -20,6 +15,19 @@ const Wrapper = styled.div`
   }
   @media (max-width: 800px) {
     flex-direction: column-reverse;
+  }
+`;
+
+const InactiveBackground = styled.div`
+  border-radius: 6px;
+  background-image: linear-gradient(#000 0, rgba(0, 0, 0, 0.5) 0),
+    url(${props => props.backgroundImage});
+  background-size: contain;
+  height: 100%;
+  width: 100%;
+  &:hover {
+    background-image: linear-gradient(#000 0, rgba(0, 0, 0, 0) 0),
+      url(${props => props.backgroundImage});
   }
 `;
 
@@ -74,20 +82,31 @@ const DescriptionDetail = styled.p`
   }
 `;
 
-function CarouselCard({ channel, isCardActive = false, index, stream }) {
-  const formatImgUrl = imgUrl => {
+function CarouselCard({
+  channel,
+  isCardActive = false,
+  handleCardClick,
+  index,
+  stream
+}) {
+  function formatImgUrl(imgUrl) {
     const formattedUrl = imgUrl
-      .replace('%{width}', 500)
-      .replace('%{height}', 500)
-      .replace('{width}', 500)
-      .replace('{height}', 500);
+      .replace('%{width}', 1000)
+      .replace('%{height}', 1000)
+      .replace('{width}', 1000)
+      .replace('{height}', 1000);
 
     return formattedUrl;
-  };
+  }
 
   const colors = usePalette();
   return (
-    <Wrapper className={`CarouselCard CarouselCard-${index}`}>
+    <Wrapper
+      className='CarouselCard'
+      id={`CarouselCard-${index}`}
+      onClick={handleCardClick}
+      tabIndex={index}
+    >
       {isCardActive ? (
         <iframe
           allowFullScreen
@@ -99,9 +118,8 @@ function CarouselCard({ channel, isCardActive = false, index, stream }) {
           title={`${channel.login} live stream video`}
         />
       ) : (
-        <img
-          alt={`${stream.user_name} stream preview`}
-          src={formatImgUrl(stream.thumbnail_url)}
+        <InactiveBackground
+          backgroundImage={formatImgUrl(stream.thumbnail_url)}
         />
       )}
       {isCardActive && (
