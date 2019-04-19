@@ -15,7 +15,11 @@ const Wrapper = styled.div`
   iframe,
   object,
   embed {
+    height: 100%;
     width: 100%;
+  }
+  @media (max-width: 800px) {
+    flex-direction: column-reverse;
   }
 `;
 
@@ -27,23 +31,47 @@ const LiveDescription = styled.div`
   padding: 10px 20px;
   height: calc(100% - 20px);
   width: 210px;
+  overflow: hidden;
   img {
-    border-radius: 6px;
+    border-radius: 50%;
     margin-right: 5px;
+    height: 50px;
     width: 50px;
   }
   p {
     font-size: 14px;
-    margin: 5px 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    word-break: break-word;
+  }
+  @media (max-width: 800px) {
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 6px 6px 0 0;
+    height: auto;
+    width: auto;
+    img {
+      height: 40px;
+      width: 40px;
+    }
   }
 `;
 
 const Row = styled.div`
   display: flex;
-  align-items: flex-start;
-  margin-bottom: 15px;
+  align-items: center;
+  p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 5px;
+    width: 100px;
+  }
+`;
+
+const DescriptionDetail = styled.p`
+  margin-top: 10px;
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;
 
 function CarouselCard({ channel, isCardActive = false, index, stream }) {
@@ -88,7 +116,7 @@ function CarouselCard({ channel, isCardActive = false, index, stream }) {
               <p>{stream.viewer_count.toLocaleString()} viewers</p>
             </div>
           </Row>
-          <p>{channel.description}</p>
+          <DescriptionDetail>{channel.description}</DescriptionDetail>
         </LiveDescription>
       )}
     </Wrapper>

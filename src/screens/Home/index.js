@@ -25,30 +25,34 @@ const StreamsWrapper = styled.div`
   position: relative;
   .CarouselCard {
     position: absolute;
-    height: 450px;
-    width: 950px;
+    height: 55vh;
+    width: 71vw;
     transition: all 450ms ease 0s;
+    @media (max-width: 1000px) {
+      height: 50vh;
+      width: 70vw;
+    }
   }
   .CarouselCard-${props => props.currentSlideIndex - 4} {
-    right: 150px;
+    right: 11.2vw;
     opacity: 0.9;
     transform: translateX(27.5vw) translateX(-25%) scale(0.85);
     z-index: 2;
   }
   .CarouselCard-${props => props.currentSlideIndex - 3} {
-    right: 75px;
+    right: 5.6vw;
     opacity: 0.9;
     transform: translateX(48vw) translateX(-50%) scale(0.7);
     z-index: 1;
   }
   .CarouselCard-${props => props.currentSlideIndex - 2} {
-    left: 75px;
+    left: 5.6vw;
     transform: translateX(-48vw) translateX(50%) scale(0.7);
     opacity: 0.9;
     z-index: 1;
   }
   .CarouselCard-${props => props.currentSlideIndex - 1} {
-    left: 150px;
+    left: 11.2vw;
     opacity: 0.9;
     transform: translateX(-27.5vw) translateX(25%) scale(0.85);
     z-index: 2;
@@ -58,25 +62,25 @@ const StreamsWrapper = styled.div`
     z-index: 3;
   }
   .CarouselCard-${props => props.currentSlideIndex + 1} {
-    right: 150px;
+    right: 11.2vw;
     opacity: 0.9;
     transform: translateX(27.5vw) translateX(-25%) scale(0.85);
     z-index: 2;
   }
   .CarouselCard-${props => props.currentSlideIndex + 2} {
-    right: 75px;
+    right: 5.6vw;
     opacity: 0.9;
     transform: translateX(48vw) translateX(-50%) scale(0.7);
     z-index: 1;
   }
   .CarouselCard-${props => props.currentSlideIndex + 3} {
-    left: 75px;
+    left: 5.6vw;
     transform: translateX(-48vw) translateX(50%) scale(0.7);
     opacity: 0.9;
     z-index: 1;
   }
   .CarouselCard-${props => props.currentSlideIndex + 4} {
-    left: 150px;
+    left: 11.2vw;
     opacity: 0.9;
     transform: translateX(-27.5vw) translateX(25%) scale(0.85);
     z-index: 2;
