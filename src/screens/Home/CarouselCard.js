@@ -18,6 +18,13 @@ const Wrapper = styled.div`
   }
 `;
 
+const VideoWrapper = styled.div`
+  border-radius: 6px 0 0 6px;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+`;
+
 const InactiveBackground = styled.div`
   border-radius: 6px;
   background-image: linear-gradient(#000 0, rgba(0, 0, 0, 0.5) 0),
@@ -108,15 +115,17 @@ function CarouselCard({
       tabIndex={index}
     >
       {isCardActive ? (
-        <iframe
-          allowFullScreen
-          frameBorder={0}
-          scrolling='no'
-          src={`https://player.twitch.tv/?channel=${
-            channel.login
-          }&autoplay=${isCardActive}`}
-          title={`${channel.login} live stream video`}
-        />
+        <VideoWrapper>
+          <iframe
+            allowFullScreen
+            frameBorder={0}
+            scrolling='no'
+            src={`https://player.twitch.tv/?channel=${
+              channel.login
+            }&autoplay=${isCardActive}`}
+            title={`${channel.login} live stream video`}
+          />
+        </VideoWrapper>
       ) : (
         <InactiveBackground
           backgroundImage={formatImgUrl(stream.thumbnail_url)}
