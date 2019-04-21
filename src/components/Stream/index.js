@@ -27,15 +27,17 @@ const VideoWrapper = styled.div`
   }
 `;
 
-const Stream = ({ channel }) => (
-  <Wrapper>
-    <VideoWrapper>
-      <TopBar channel={channel} />
-      <Video channel={channel} />
-      <BottomBar channel={channel} />
-    </VideoWrapper>
-    <Chat channel={channel} />
-  </Wrapper>
-);
+const Stream = ({ channel, query = `channel=${channel.login}` }) => {
+  return (
+    <Wrapper>
+      <VideoWrapper>
+        <TopBar channel={channel} />
+        <Video channel={channel} query={query} />
+        <BottomBar channel={channel} />
+      </VideoWrapper>
+      <Chat channel={channel} />
+    </Wrapper>
+  );
+};
 
 export default Stream;
