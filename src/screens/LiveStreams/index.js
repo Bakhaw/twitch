@@ -4,6 +4,7 @@ import Banner from './Banner';
 import ChangeLanguage from './ChangeLanguage';
 import Collection from '../../components/Collection';
 import PageWrapper from '../../components/PageWrapper';
+import StreamCard from '../../components/StreamCard';
 import API from '../../api';
 import { useFetch } from '../../api/hooks';
 
@@ -55,7 +56,14 @@ function LiveStreams({ match }) {
         setCurrentLanguage={setCurrentLanguage}
       />
       <PageWrapper isLoading={isLoading}>
-        <Collection data={streams} type='StreamCard' />
+        <Collection data={streams} type='StreamCard'>
+          {data => (
+            <StreamCard
+              linkTo={`/directory/game/${data.game_id}/channel/${data.user_id}`}
+              stream={data}
+            />
+          )}
+        </Collection>
       </PageWrapper>
     </>
   );

@@ -8,8 +8,6 @@ import {
   WindowScroller
 } from 'react-virtualized';
 
-import GameCard from '../GameCard';
-import StreamCard from '../StreamCard';
 import { layout } from '../../stylesheets';
 
 class Collection extends React.PureComponent {
@@ -42,7 +40,7 @@ class Collection extends React.PureComponent {
   };
 
   _cellRenderer = ({ index, key, parent, style }) => {
-    const { data, type } = this.props;
+    const { children, data, type } = this.props;
     const { columnWidth } = this.state;
     const currentData = data[index];
     const containerStyle = {
@@ -52,16 +50,9 @@ class Collection extends React.PureComponent {
       width: columnWidth
     };
 
-    const children =
-      type === 'StreamCard' ? (
-        <StreamCard stream={currentData} />
-      ) : (
-        <GameCard game={currentData} />
-      );
-
     return (
       <CellMeasurer cache={this._cache} index={index} key={key} parent={parent}>
-        <div style={containerStyle}>{children}</div>
+        <div style={containerStyle}>{children(currentData)}</div>
       </CellMeasurer>
     );
   };
