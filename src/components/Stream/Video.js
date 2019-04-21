@@ -10,13 +10,13 @@ const Wrapper = styled.div`
   }
 `;
 
-const Video = ({ channel }) => (
+const Video = ({ channel, query }) => (
   <Wrapper>
     <iframe
       allowFullScreen
       frameBorder={0}
       scrolling='no'
-      src={`https://player.twitch.tv/?channel=${channel.login}`}
+      src={`https://player.twitch.tv/?${query}`}
       title={`${channel.login} live stream video`}
     />
   </Wrapper>
