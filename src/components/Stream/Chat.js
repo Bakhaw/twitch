@@ -30,7 +30,6 @@ const Chat = ({ channel }) => {
   const src = `https://www.twitch.tv/embed/${
     channel.login
   }/chat/${currentTheme === 'Dark' && '?darkpopout'}&wmode=transparent`;
-
   return (
     <Wrapper colors={colors}>
       <iframe
@@ -38,7 +37,7 @@ const Chat = ({ channel }) => {
         frameBorder={0}
         id={channel.login}
         src={src}
-        title={`${channel.login} live stream video`}
+        title={`${channel.login} live stream chat`}
       />
     </Wrapper>
   );
