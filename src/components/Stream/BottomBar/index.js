@@ -22,12 +22,14 @@ const Wrapper = styled.div`
 
 function BottomBar({ channel, match }) {
   const colors = usePalette();
-  const { data: streamDetail } = useFetch('getStreamsByParam', [
-    'user_id',
-    channel.id,
-    1
-  ]);
-  const { data: gameDetail } = useFetch('getGameById', [match.params.gameId]);
+  const { gameId } = match.params;
+  const { data: gameDetail } = useFetch('getGameById', [gameId]);
+  const { data: streamDetail } = useFetch(
+    'getStreamsByParam',
+    ['user_id', channel.id, 1],
+    [],
+    true // parameter to refresh data every 10 sec
+  );
 
   // TODO try to find how to get gameDetail on <Video /> screen/
   if (streamDetail.length === 0 || gameDetail.length === 0) return null;

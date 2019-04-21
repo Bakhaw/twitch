@@ -44,20 +44,29 @@ const Icon = styled.img`
   width: 18px;
 `;
 
-function Right({ channel, streamDetail }) {
-  const { viewer_count } = streamDetail[0];
-  return (
-    <ViewsWrapper>
-      <LiveViewers>
-        <Icon src={PersonIcon} />
-        <p>{viewer_count.toLocaleString()}</p>
-      </LiveViewers>
-      <ChannelViews>
-        <Icon src={EyeIcon} />
-        <p>{channel.view_count.toLocaleString()}</p>
-      </ChannelViews>
-    </ViewsWrapper>
-  );
+class Right extends React.Component {
+  // if viewer_count is the same, don't re-render()
+  shouldComponentUpdate = nextProps =>
+    this.props.streamDetail[0].viewer_count !==
+    nextProps.streamDetail[0].viewer_count;
+
+  render() {
+    const { channel, streamDetail } = this.props;
+    const { viewer_count } = streamDetail[0];
+
+    return (
+      <ViewsWrapper>
+        <LiveViewers>
+          <Icon src={PersonIcon} />
+          <p>{viewer_count.toLocaleString()}</p>
+        </LiveViewers>
+        <ChannelViews>
+          <Icon src={EyeIcon} />
+          <p>{channel.view_count.toLocaleString()}</p>
+        </ChannelViews>
+      </ViewsWrapper>
+    );
+  }
 }
 
 Right.propTypes = {
