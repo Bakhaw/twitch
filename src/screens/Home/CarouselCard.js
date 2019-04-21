@@ -115,36 +115,36 @@ function CarouselCard({
       tabIndex={index}
     >
       {isCardActive ? (
-        <VideoWrapper>
-          <iframe
-            allowFullScreen
-            frameBorder={0}
-            scrolling='no'
-            src={`https://player.twitch.tv/?channel=${
-              channel.login
-            }&autoplay=${isCardActive}`}
-            title={`${channel.login} live stream video`}
-          />
-        </VideoWrapper>
+        <>
+          <VideoWrapper>
+            <iframe
+              allowFullScreen
+              frameBorder={0}
+              scrolling='no'
+              src={`https://player.twitch.tv/?channel=${
+                channel.login
+              }&autoplay=${isCardActive}`}
+              title={`${channel.login} live stream video`}
+            />
+          </VideoWrapper>
+          <LiveDescription colors={colors}>
+            <Row>
+              <img
+                alt={`${channel.login} avatar`}
+                src={channel.profile_image_url}
+              />
+              <div>
+                <p>{channel.display_name}</p>
+                <p>{stream.viewer_count.toLocaleString()} viewers</p>
+              </div>
+            </Row>
+            <DescriptionDetail>{channel.description}</DescriptionDetail>
+          </LiveDescription>
+        </>
       ) : (
         <InactiveBackground
           backgroundImage={formatImgUrl(stream.thumbnail_url)}
         />
-      )}
-      {isCardActive && (
-        <LiveDescription colors={colors}>
-          <Row>
-            <img
-              alt={`${channel.login} avatar`}
-              src={channel.profile_image_url}
-            />
-            <div>
-              <p>{channel.display_name}</p>
-              <p>{stream.viewer_count.toLocaleString()} viewers</p>
-            </div>
-          </Row>
-          <DescriptionDetail>{channel.description}</DescriptionDetail>
-        </LiveDescription>
       )}
     </Wrapper>
   );
