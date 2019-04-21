@@ -8,6 +8,7 @@ const Home = lazy(() => import('../screens/Home'));
 const LiveStream = lazy(() => import('../screens/LiveStream'));
 const LiveStreams = lazy(() => import('../screens/LiveStreams'));
 const TopGames = lazy(() => import('../screens/TopGames'));
+const Video = lazy(() => import('../screens/Video'));
 const Videos = lazy(() => import('../screens/Videos'));
 
 function Router() {
@@ -17,6 +18,7 @@ function Router() {
         <NavBar />
         <Suspense fallback={<Loader fullscreen />}>
           <Switch>
+            <Route path='/videos/:userId/:videoId' component={Video} />
             <Route path='/videos/:userId' component={Videos} />
             <Route
               path='/directory/game/:gameId/channel/:userId'
