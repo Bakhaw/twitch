@@ -26,15 +26,17 @@ const Wrapper = styled.div`
 const Chat = ({ channel }) => {
   const colors = usePalette();
   const { currentTheme } = useContext(StateContext);
+  const src = `https://www.twitch.tv/embed/${
+    channel.login
+  }/chat/${currentTheme === 'Dark' && '?darkpopout'}&wmode=transparent`;
+
   return (
     <Wrapper colors={colors}>
       <iframe
         allowFullScreen
         frameBorder={0}
         id={channel.login}
-        src={`https://www.twitch.tv/embed/${
-          channel.login
-        }/chat/${currentTheme === 'Dark' && '?darkpopout'}&wmode=transparent`}
+        src={src}
         title={`${channel.login} live stream video`}
       />
     </Wrapper>
