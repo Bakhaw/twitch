@@ -29,6 +29,7 @@ function BottomBar({ channel, match }) {
   ]);
   const { data: gameDetail } = useFetch('getGameById', [match.params.gameId]);
 
+  // TODO try to find how to get gameDetail on <Video /> screen/
   if (streamDetail.length === 0 || gameDetail.length === 0) return null;
 
   return (
