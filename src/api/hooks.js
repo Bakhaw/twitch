@@ -14,7 +14,7 @@ export function useFetch(
     if (!request) return;
     await setData(request.data);
     if (refresh) {
-      timeoutID = setTimeout(fetchData, 5000); // recursive timeout to refresh viewers count every 10sec (ty Lord reduce) :^)
+      timeoutID = setTimeout(fetchData, 30000); // recursive timeout to refresh viewers count every 30sec (ty Lord reduce) :^)
     }
   };
 

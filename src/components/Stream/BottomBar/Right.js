@@ -44,6 +44,7 @@ const Icon = styled.img`
   width: 18px;
 `;
 
+// TODO refactor using functional component and make it work with React.memo();
 class Right extends React.Component {
   // if viewer_count is the same, don't re-render()
   shouldComponentUpdate = nextProps =>
@@ -53,7 +54,6 @@ class Right extends React.Component {
   render() {
     const { channel, streamDetail } = this.props;
     const { viewer_count } = streamDetail[0];
-
     return (
       <ViewsWrapper>
         <LiveViewers>

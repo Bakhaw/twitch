@@ -28,8 +28,14 @@ function BottomBar({ channel, match }) {
     'getStreamsByParam',
     ['user_id', channel.id, 1],
     [],
-    true // parameter to refresh data every 10 sec
+    true // parameter checking if custom hook need to refresh data every 30 sec or not
   );
+
+  React.useEffect(() => {
+    if (streamDetail.length > 0) {
+      console.log(streamDetail[0].viewer_count);
+    }
+  }, [streamDetail]);
 
   // TODO try to find how to get gameDetail on <Video /> screen/
   if (streamDetail.length === 0 || gameDetail.length === 0) return null;
