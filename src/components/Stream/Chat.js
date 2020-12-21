@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   iframe,
   object,
   embed {
-    box-shadow: ${props => props.colors.LiveStream.boxShadow};
+    box-shadow: ${(props) => props.colors.LiveStream.boxShadow};
     border: 5px solid rgba(255, 255, 255, 0);
     -webkit-border-radius: 6px !important;
     -ms-border-radius: 6px !important;
@@ -27,9 +27,7 @@ const Chat = ({ channel }) => {
   const colors = usePalette();
   const { currentTheme } = useContext(StateContext);
   // TODO try how to embed a chat replay (used on <Video /> screen)
-  const src = `https://www.twitch.tv/embed/${
-    channel.login
-  }/chat/${currentTheme === 'Dark' && '?darkpopout'}&wmode=transparent`;
+  const src = `https://www.twitch.tv/embed/${channel.login}/chat/?parent=${window.location.hostname}`;
   return (
     <Wrapper colors={colors}>
       <iframe
@@ -44,7 +42,7 @@ const Chat = ({ channel }) => {
 };
 
 Chat.propTypes = {
-  channel: PropTypes.object
+  channel: PropTypes.object,
 };
 
 export default Chat;

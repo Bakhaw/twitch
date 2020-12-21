@@ -8,16 +8,16 @@ import { useFetch } from '../../api/hooks';
 
 function Videos({ match }) {
   const { userId } = match.params;
-  const { data: videos } = useFetch('getVideosByParam', [
+  const { data: videos = [] } = useFetch('getVideosByParam', [
     'user_id',
     userId,
-    100
+    100,
   ]);
 
   return (
     <PageWrapper isLoading={videos.length === 0}>
       <Collection data={videos} type='StreamCard'>
-        {data => (
+        {(data) => (
           <StreamCard
             linkTo={`/videos/${data.user_id}/${data.id}`}
             stream={data}

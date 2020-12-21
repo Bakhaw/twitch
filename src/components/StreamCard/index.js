@@ -17,7 +17,7 @@ const StreamCard = ({ linkTo, stream }) => {
 };
 
 StreamCard.propTypes = {
-  stream: PropTypes.object
+  stream: PropTypes.object,
 };
 
 export default StreamCard;

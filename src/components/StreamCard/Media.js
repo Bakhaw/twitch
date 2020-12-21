@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { layout, usePalette } from '../../stylesheets';
 
 const Image = styled.img`
-  background: ${props => props.colors.StreamCard.background};
+  background: ${(props) => props.colors.StreamCard.background};
   min-height: ${layout.StreamCard.height}px;
   min-width: 100%;
   width: 100%;
@@ -37,10 +37,10 @@ const Wrapper = styled.div`
 `;
 
 function Media({
-  stream: { thumbnail_url, user_name, view_count, viewer_count }
+  stream: { thumbnail_url, user_name, view_count, viewer_count },
 }) {
   const colors = usePalette();
-  const formatViews = views => {
+  const formatViews = (views) => {
     // ty https://stackoverflow.com/a/40724354
     const SI_SYMBOL = ['', 'k', 'M', 'G', 'T', 'P', 'E'];
 
@@ -55,7 +55,7 @@ function Media({
     return scaled.toFixed(1) + suffix;
   };
 
-  const formatImgUrl = imgUrl => {
+  const formatImgUrl = (imgUrl) => {
     const formattedUrl = imgUrl
       .replace('%{width}', 1920)
       .replace('%{height}', 1080)
@@ -82,7 +82,7 @@ function Media({
 }
 
 Media.propTypes = {
-  stream: PropTypes.object
+  stream: PropTypes.object,
 };
 
 export default Media;

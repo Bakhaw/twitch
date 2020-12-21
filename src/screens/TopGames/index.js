@@ -11,7 +11,7 @@ function TopGames() {
   return (
     <PageWrapper isLoading={topGames.length === 0}>
       <Collection data={topGames} type='GameCard'>
-        {data => <GameCard game={data} />}
+        {(data) => <GameCard game={data} />}
       </Collection>
     </PageWrapper>
   );

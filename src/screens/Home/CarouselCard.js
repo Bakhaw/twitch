@@ -28,21 +28,21 @@ const VideoWrapper = styled.div`
 const InactiveBackground = styled.div`
   border-radius: 6px;
   background-image: linear-gradient(#000 0, rgba(0, 0, 0, 0.5) 0),
-    url(${props => props.backgroundImage});
+    url(${(props) => props.backgroundImage});
   background-size: contain;
   height: 100%;
   width: 100%;
   &:hover {
     background-image: linear-gradient(#000 0, rgba(0, 0, 0, 0) 0),
-      url(${props => props.backgroundImage});
+      url(${(props) => props.backgroundImage});
   }
 `;
 
 const LiveDescription = styled.div`
-  color: ${props => props.colors.StreamCard.title};
-  background: ${props => props.colors.LiveStream.background};
+  color: ${(props) => props.colors.StreamCard.title};
+  background: ${(props) => props.colors.LiveStream.background};
   border-radius: 0 6px 6px 0;
-  box-shadow: ${props => props.colors.LiveStream.boxShadow};
+  box-shadow: ${(props) => props.colors.LiveStream.boxShadow};
   padding: 10px 20px;
   height: calc(100% - 20px);
   width: 210px;
@@ -94,7 +94,7 @@ function CarouselCard({
   isCardActive = false,
   handleCardClick,
   index,
-  stream
+  stream,
 }) {
   function formatImgUrl(imgUrl) {
     const formattedUrl = imgUrl
@@ -121,9 +121,7 @@ function CarouselCard({
               allowFullScreen
               frameBorder={0}
               scrolling='no'
-              src={`https://player.twitch.tv/?channel=${
-                channel.login
-              }&autoplay=${isCardActive}`}
+              src={`https://player.twitch.tv/?channel=${channel.login}&autoplay=${isCardActive}&parent=${window.location.hostname}`}
               title={`${channel.login} live stream video`}
             />
           </VideoWrapper>

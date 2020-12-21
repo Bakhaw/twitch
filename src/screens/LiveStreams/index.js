@@ -18,7 +18,7 @@ function LiveStreams({ match }) {
     'game_id',
     gameId,
     100,
-    `&language=${currentLanguage}`
+    `&language=${currentLanguage}`,
   ]);
 
   const getData = async () => {
@@ -36,7 +36,7 @@ function LiveStreams({ match }) {
       dataUsers.forEach(({ profile_image_url }, index) => {
         newStreams[index] = {
           ...newStreams[index],
-          img: profile_image_url
+          img: profile_image_url,
         };
       });
       await setStreams(newStreams);
@@ -57,7 +57,7 @@ function LiveStreams({ match }) {
       />
       <PageWrapper isLoading={isLoading}>
         <Collection data={streams} type='StreamCard'>
-          {data => (
+          {(data) => (
             <StreamCard
               linkTo={`/directory/game/${data.game_id}/channel/${data.user_id}`}
               stream={data}

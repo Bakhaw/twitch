@@ -16,14 +16,14 @@ const Video = ({ channel, query }) => (
       allowFullScreen
       frameBorder={0}
       scrolling='no'
-      src={`https://player.twitch.tv/?${query}`}
+      src={`https://player.twitch.tv/?${query}&parent=${window.location.hostname}`}
       title={`${channel.login} live stream video`}
     />
   </Wrapper>
 );
 
 Video.propTypes = {
-  channel: PropTypes.object
+  channel: PropTypes.object,
 };
 
 export default Video;

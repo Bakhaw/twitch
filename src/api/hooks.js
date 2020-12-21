@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import API from './index';
 
 export function useFetch(
@@ -9,10 +10,14 @@ export function useFetch(
 ) {
   let timeoutID;
   const [data, setData] = useState(initialState);
+
   const fetchData = async () => {
     const request = await API[method](...methodParams);
+
     if (!request) return;
+
     await setData(request.data);
+
     if (refresh) {
       timeoutID = setTimeout(fetchData, 30000); // recursive timeout to refresh viewers count every 30sec (ty Lord reduce) :^)
     }
@@ -20,6 +25,7 @@ export function useFetch(
 
   useEffect(() => {
     fetchData();
+
     return () => {
       if (refresh) clearTimeout(timeoutID);
     };
