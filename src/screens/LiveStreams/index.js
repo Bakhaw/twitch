@@ -24,6 +24,7 @@ function LiveStreams({ match }) {
   const getData = async () => {
     if (dataStreams.length > 0) {
       await setIsLoading(true);
+
       let streamersIds = '';
       dataStreams.forEach(({ user_id }, index) => {
         streamersIds += index === 0 ? `${user_id}` : `&id=${user_id}`;
@@ -39,6 +40,7 @@ function LiveStreams({ match }) {
           img: profile_image_url,
         };
       });
+
       await setStreams(newStreams);
       await setIsLoading(false);
     }
