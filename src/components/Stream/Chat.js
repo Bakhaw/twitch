@@ -26,8 +26,12 @@ const Wrapper = styled.div`
 const Chat = ({ channel }) => {
   const colors = usePalette();
   const { currentTheme } = useContext(StateContext);
+
   // TODO try how to embed a chat replay (used on <Video /> screen)
-  const src = `https://www.twitch.tv/embed/${channel.login}/chat/?parent=${window.location.hostname}`;
+  const src = `https://www.twitch.tv/embed/${channel.login}/chat/?parent=${
+    window.location.hostname
+  }${currentTheme === 'Dark' ? '&darkpopout' : ''}`;
+
   return (
     <Wrapper colors={colors}>
       <iframe
