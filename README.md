@@ -1,6 +1,6 @@
-### [Twitch](https://twitch.tv) clone using official [Twitch API](https://dev.twitch.tv)
+### [Twitch](https://twitch.tv) clone using [this proxy](https://github.com/Bakhaw/twitch-api)
 
-### First version of this project is [here](https://github.com/Bakhaw/twitch-app)
+### First version of this project can be found [here](https://github.com/Bakhaw/twitch-app)
 
 ## Usage
 
